@@ -1,0 +1,14 @@
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[len(arr)//2] # choose the pivot element
+        less = [x for x in arr if x < pivot] # subarray of all elements less than the pivot
+        equal = [x for x in arr if x == pivot] # subarray of all elements equal to the pivot
+        greater = [x for x in arr if x > pivot] # subarray of all elements greater than the pivot
+        return quick_sort(less) + equal + quick_sort(greater)
+
+# Example usage of the function
+numbers = [5, 2, 9, 6, 1, 3, 8, 7, 4]
+sorted_numbers = quick_sort(numbers)
+print(f"Sorted list: {sorted_numbers}")
